@@ -29,7 +29,7 @@ public struct CatalogFilter: Sendable, Hashable {
         self.trust = trust
     }
 
-    func matches(_ item: CatalogItem) -> Bool {
+    public func matches(_ item: CatalogItem) -> Bool {
         if let kind, item.kind != kind { return false }
         if let category, item.category != category { return false }
         if let maximumRisk, item.risk > maximumRisk { return false }

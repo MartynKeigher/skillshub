@@ -51,7 +51,8 @@ public final class LocalSkillsService {
     @ObservationIgnored private let makeCLI: @Sendable (ClaudeLocator.Installation) -> any ClaudeCLIProtocol
     @ObservationIgnored private var installation: ClaudeLocator.Installation?
     @ObservationIgnored private var snapshotCache: (key: String, snapshot: LocalSnapshot)?
-    @ObservationIgnored private var revision = 0
+    /// Changes whenever a refresh has read new state.
+    public private(set) var revision = 0
 
     public init(home: URL = FileManager.default.homeDirectoryForCurrentUser,
                 projectFolders: [URL] = [],

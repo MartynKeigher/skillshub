@@ -1,38 +1,22 @@
-//
-//  SkillsHubTests.swift
-//  SkillsHubTests
-//
-//  Created by Martyn Keigher on 10/28/26.
-//
-
+import SkillsHubCore
 import XCTest
 @testable import SkillsHub
 
 final class SkillsHubTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testGzipRoundTrip() throws {
+        // `printf 'hello\n' | gzip -9 -n`
+        let gz = Data([0x1F, 0x8B, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x03, 0xCB, 0x48, 0xCD, 0xC9, 0xC9,
+                       0xE7, 0x02, 0x00, 0x20, 0x30, 0x3A, 0x36, 0x06, 0x00, 0x00, 0x00])
+        XCTAssertEqual(try Gzip.decompress(gz), Data("hello\n".utf8))
+        XCTAssertThrowsError(try Gzip.decompress(Data("not gzip".utf8)))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testBundledCatalogDecodes() throws {
+        let bundled = BundledCatalog.make(bundle: Bundle(for: AppModel.self))
+        XCTAssertNotNil(bundled.generatedAt, "index.meta.json ships with the app")
+        let data = try XCTUnwrap(bundled.load(), "index.json.gz ships with the app")
+        let catalog = try Catalog(index: IndexDecoding.decode(data))
+        XCTAssertEqual(catalog.index.generatedAt, bundled.generatedAt)
+        XCTAssertGreaterThan(catalog.items.count, 100)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
