@@ -3,18 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 110;
+	objectVersion = 77;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		5B1E0A032F00C0DE00A1B2C3 /* SkillsHubCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3F9C092B3092C429002F9EAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F9C09153092C429002F9EAA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F9C091C3092C429002F9EAA;
-			remoteInfo = SkillsHub;
-		};
-		3F9C09353092C429002F9EAA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F9C09153092C429002F9EAA /* Project object */;
 			proxyType = 1;
@@ -26,7 +23,6 @@
 /* Begin PBXFileReference section */
 		3F9C091D3092C429002F9EAA /* SkillsHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9C092A3092C429002F9EAA /* SkillsHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F9C09343092C429002F9EAA /* SkillsHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -46,14 +42,10 @@
 		3F9C091A3092C429002F9EAA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				5B1E0A032F00C0DE00A1B2C3 /* SkillsHubCore in Frameworks */,
 			);
 		};
 		3F9C09273092C429002F9EAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
-		3F9C09313092C429002F9EAA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 			);
@@ -75,7 +67,6 @@
 			children = (
 				3F9C091D3092C429002F9EAA /* SkillsHub.app */,
 				3F9C092A3092C429002F9EAA /* SkillsHubTests.xctest */,
-				3F9C09343092C429002F9EAA /* SkillsHubUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +88,9 @@
 				3F9C091F3092C429002F9EAA /* SkillsHub */,
 			);
 			name = SkillsHub;
+			packageProductDependencies = (
+				5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */,
+			);
 			productName = SkillsHub;
 			productReference = 3F9C091D3092C429002F9EAA /* SkillsHub.app */;
 			productType = "com.apple.product-type.application";
@@ -122,24 +116,6 @@
 			productReference = 3F9C092A3092C429002F9EAA /* SkillsHubTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3F9C09333092C429002F9EAA /* SkillsHubUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F9C09423092C429002F9EAA /* Build configuration list for PBXNativeTarget "SkillsHubUITests" */;
-			buildPhases = (
-				3F9C09303092C429002F9EAA /* Sources */,
-				3F9C09313092C429002F9EAA /* Frameworks */,
-				3F9C09323092C429002F9EAA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3F9C09363092C429002F9EAA /* PBXTargetDependency */,
-			);
-			name = SkillsHubUITests;
-			productName = SkillsHubUITests;
-			productReference = 3F9C09343092C429002F9EAA /* SkillsHubUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -157,10 +133,6 @@
 						CreatedOnToolsVersion = 27.1;
 						TestTargetID = 3F9C091C3092C429002F9EAA;
 					};
-					3F9C09333092C429002F9EAA = {
-						CreatedOnToolsVersion = 27.1;
-						TestTargetID = 3F9C091C3092C429002F9EAA;
-					};
 				};
 			};
 			buildConfigurationList = 3F9C09183092C429002F9EAA /* Build configuration list for PBXProject "SkillsHub" */;
@@ -172,6 +144,9 @@
 			);
 			mainGroup = 3F9C09143092C429002F9EAA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5B1E0A012F00C0DE00A1B2C3 /* XCLocalSwiftPackageReference "Packages/SkillsHubCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3F9C091E3092C429002F9EAA /* Products */;
 			projectDirPath = "";
@@ -179,7 +154,6 @@
 			targets = (
 				3F9C091C3092C429002F9EAA /* SkillsHub */,
 				3F9C09293092C429002F9EAA /* SkillsHubTests */,
-				3F9C09333092C429002F9EAA /* SkillsHubUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -191,11 +165,6 @@
 			);
 		};
 		3F9C09283092C429002F9EAA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		3F9C09323092C429002F9EAA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -213,11 +182,6 @@
 			files = (
 			);
 		};
-		3F9C09303092C429002F9EAA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -225,11 +189,6 @@
 			isa = PBXTargetDependency;
 			target = 3F9C091C3092C429002F9EAA /* SkillsHub */;
 			targetProxy = 3F9C092B3092C429002F9EAA /* PBXContainerItemProxy */;
-		};
-		3F9C09363092C429002F9EAA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F9C091C3092C429002F9EAA /* SkillsHub */;
-			targetProxy = 3F9C09353092C429002F9EAA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -288,7 +247,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +305,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -426,7 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = E7Z8C3T9MT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martynkeigher.SkillsHubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,7 +393,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkillsHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkillsHub";
 			};
 			name = Debug;
@@ -447,7 +406,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = E7Z8C3T9MT;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martynkeigher.SkillsHubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,46 +414,8 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkillsHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkillsHub";
-			};
-			name = Release;
-		};
-		3F9C09433092C429002F9EAA /* Debug configuration for PBXNativeTarget "SkillsHubUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E7Z8C3T9MT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.martynkeigher.SkillsHubUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SkillsHub;
-			};
-			name = Debug;
-		};
-		3F9C09443092C429002F9EAA /* Release configuration for PBXNativeTarget "SkillsHubUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E7Z8C3T9MT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.martynkeigher.SkillsHubUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SkillsHub;
 			};
 			name = Release;
 		};
@@ -525,15 +446,21 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		3F9C09423092C429002F9EAA /* Build configuration list for PBXNativeTarget "SkillsHubUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F9C09433092C429002F9EAA /* Debug configuration for PBXNativeTarget "SkillsHubUITests" */,
-				3F9C09443092C429002F9EAA /* Release configuration for PBXNativeTarget "SkillsHubUITests" */,
-			);
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5B1E0A012F00C0DE00A1B2C3 /* XCLocalSwiftPackageReference "Packages/SkillsHubCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SkillsHubCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SkillsHubCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F9C09153092C429002F9EAA /* Project object */;
 	validationLevel = 1;

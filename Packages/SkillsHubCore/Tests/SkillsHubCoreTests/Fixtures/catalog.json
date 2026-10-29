@@ -1,0 +1,851 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-11-10T04:17:00Z",
+ "generator": "skillsflow 0.2.0",
+ "counts": {
+  "skills": 7,
+  "plugins": 5,
+  "marketplaces": 2,
+  "repos": 0
+ },
+ "categories": [
+  "Development",
+  "DevOps & Cloud",
+  "Productivity",
+  "Other"
+ ],
+ "featured": [
+  {
+   "id": "official-tool@anthropic-mp",
+   "kind": "plugin",
+   "note": "Format everything"
+  },
+  {
+   "id": "lonely/skills:setup",
+   "kind": "skill",
+   "note": null
+  },
+  {
+   "id": "gone@nowhere",
+   "kind": "plugin",
+   "note": null
+  }
+ ],
+ "marketplaces": [
+  {
+   "name": "anthropic-mp",
+   "repo": "anthropics/mp",
+   "commit": "c1",
+   "description": "A",
+   "owner": "Anthropic",
+   "trust": "official",
+   "publisher": "anthropic",
+   "add_command": "claude plugin marketplace add anthropics/mp",
+   "plugins": [
+    "official-tool@anthropic-mp",
+    "partner@anthropic-mp",
+    "unreviewed@anthropic-mp",
+    "rel@anthropic-mp"
+   ]
+  },
+  {
+   "name": "indie",
+   "repo": "someone/indie",
+   "commit": "c3",
+   "description": null,
+   "owner": null,
+   "trust": "community",
+   "publisher": "third_party",
+   "add_command": "claude plugin marketplace add someone/indie",
+   "plugins": [
+    "indie-tool@indie"
+   ]
+  }
+ ],
+ "plugins": [
+  {
+   "id": "official-tool@anthropic-mp",
+   "name": "official-tool",
+   "marketplace": "anthropic-mp",
+   "display_name": null,
+   "description": "The official-tool plugin",
+   "version": "1.0.0",
+   "author": null,
+   "homepage": null,
+   "license": "MIT",
+   "category": "Productivity",
+   "marketplace_category": null,
+   "tags": [
+    "tools",
+    "official-tool"
+   ],
+   "source": {
+    "type": "relative",
+    "path": "./plugins/official-tool"
+   },
+   "install_command": "claude plugin install official-tool@anthropic-mp",
+   "trust": "official",
+   "publisher": "anthropic",
+   "listed_by_anthropic": true,
+   "added": "2026-10-20",
+   "indexed": true,
+   "repo": "anthropics/mp",
+   "path": "plugins/official-tool",
+   "commit": "c1",
+   "manifest_name": "official-tool",
+   "skills": [
+    "anthropics/mp:plugins/official-tool/skills/fmt"
+   ],
+   "files": [
+    {
+     "path": ".claude-plugin/plugin.json",
+     "size": 10,
+     "sha": "5555555555555555555555555555555555555555",
+     "kind": "data",
+     "executable": false
+    }
+   ],
+   "components": {
+    "skills": 1,
+    "commands": 0,
+    "agents": 0,
+    "hooks": false,
+    "mcp_servers": false,
+    "lsp_servers": false,
+    "monitors": false,
+    "mods": false,
+    "bin": false
+   },
+   "automatic": {
+    "hooks": [],
+    "mcp_servers": [],
+    "lsp_servers": [],
+    "monitors": [],
+    "mods": [],
+    "bin": []
+   },
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": [],
+    "runs_code_automatically": []
+   },
+   "stars": 500,
+   "stars_gained": {
+    "count": 50,
+    "days": 7
+   },
+   "first_seen": "2026-10-28"
+  },
+  {
+   "id": "partner@anthropic-mp",
+   "name": "partner",
+   "marketplace": "anthropic-mp",
+   "display_name": null,
+   "description": "The partner plugin",
+   "version": null,
+   "author": null,
+   "homepage": null,
+   "license": "MIT",
+   "category": "Productivity",
+   "marketplace_category": null,
+   "tags": [
+    "tools",
+    "partner"
+   ],
+   "source": {
+    "type": "github",
+    "repo": "partner/tool",
+    "path": null,
+    "ref": null,
+    "sha": null
+   },
+   "install_command": "claude plugin install partner@anthropic-mp",
+   "trust": "official",
+   "publisher": "third_party",
+   "listed_by_anthropic": true,
+   "added": null,
+   "indexed": true,
+   "repo": "partner/tool",
+   "path": "",
+   "commit": "c2",
+   "manifest_name": "partner",
+   "skills": [
+    "partner/tool",
+    "someone/indie:skills/shared"
+   ],
+   "files": [],
+   "components": {
+    "skills": 2,
+    "commands": 0,
+    "agents": 0,
+    "hooks": true,
+    "mcp_servers": true,
+    "lsp_servers": false,
+    "monitors": false,
+    "mods": false,
+    "bin": false
+   },
+   "automatic": {
+    "hooks": [
+     {
+      "event": "PostToolUse",
+      "matcher": "Write|Edit",
+      "type": "command",
+      "command": "\"${CLAUDE_PLUGIN_ROOT}\"/run.sh",
+      "file": "hooks/hooks.json"
+     }
+    ],
+    "mcp_servers": [
+     {
+      "name": "db",
+      "type": "stdio",
+      "command": "node server.js",
+      "env": [
+       "DB_TOKEN"
+      ],
+      "file": ".mcp.json"
+     }
+    ],
+    "lsp_servers": [],
+    "monitors": [],
+    "mods": [
+     {
+      "module": "./mods/panel.js",
+      "file": "hooks/hooks.json"
+     }
+    ],
+    "bin": []
+   },
+   "security": {
+    "risk": "medium",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": [
+     {
+      "rule": "network-code",
+      "severity": "medium",
+      "summary": "network-code summary",
+      "file": "server.js",
+      "line": 1,
+      "excerpt": "x",
+      "context": "code"
+     }
+    ],
+    "runs_code_automatically": [
+     "hooks",
+     "mcp_servers",
+     "teleporter"
+    ]
+   },
+   "stars": 1000,
+   "stars_gained": {
+    "count": 5,
+    "days": 7
+   },
+   "first_seen": "2026-10-28"
+  },
+  {
+   "id": "unreviewed@anthropic-mp",
+   "name": "unreviewed",
+   "marketplace": "anthropic-mp",
+   "display_name": null,
+   "description": "The unreviewed plugin",
+   "version": null,
+   "author": null,
+   "homepage": null,
+   "license": "MIT",
+   "category": "Productivity",
+   "marketplace_category": null,
+   "tags": [
+    "tools",
+    "unreviewed"
+   ],
+   "source": {
+    "type": "npm",
+    "repo": null,
+    "path": null,
+    "ref": null,
+    "sha": null
+   },
+   "install_command": "claude plugin install unreviewed@anthropic-mp",
+   "trust": "official",
+   "publisher": "third_party",
+   "listed_by_anthropic": true,
+   "added": null,
+   "indexed": false,
+   "repo": null,
+   "path": null,
+   "commit": null,
+   "manifest_name": null,
+   "skills": [],
+   "files": [],
+   "components": null,
+   "automatic": null,
+   "security": null,
+   "stars": null,
+   "stars_gained": null,
+   "first_seen": "2026-10-28"
+  },
+  {
+   "id": "rel@anthropic-mp",
+   "name": "rel",
+   "marketplace": "anthropic-mp",
+   "display_name": null,
+   "description": "The rel plugin",
+   "version": null,
+   "author": null,
+   "homepage": null,
+   "license": "MIT",
+   "category": "Productivity",
+   "marketplace_category": null,
+   "tags": [
+    "tools",
+    "rel"
+   ],
+   "source": {
+    "type": "relative",
+    "path": "./plugins/rel"
+   },
+   "install_command": "claude plugin install rel@anthropic-mp",
+   "trust": "official",
+   "publisher": "anthropic",
+   "listed_by_anthropic": true,
+   "added": null,
+   "indexed": true,
+   "repo": "anthropics/mp",
+   "path": "plugins/rel",
+   "commit": "c9",
+   "manifest_name": "rel",
+   "skills": [],
+   "files": [],
+   "components": {
+    "skills": 0,
+    "commands": 0,
+    "agents": 0,
+    "hooks": false,
+    "mcp_servers": false,
+    "lsp_servers": false,
+    "monitors": false,
+    "mods": false,
+    "bin": false
+   },
+   "automatic": {
+    "hooks": [],
+    "mcp_servers": [],
+    "lsp_servers": [],
+    "monitors": [],
+    "mods": [],
+    "bin": []
+   },
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": [],
+    "runs_code_automatically": []
+   },
+   "stars": 500,
+   "stars_gained": null,
+   "first_seen": "2026-10-28"
+  },
+  {
+   "id": "indie-tool@indie",
+   "name": "indie-tool",
+   "marketplace": "indie",
+   "display_name": null,
+   "description": "The indie-tool plugin",
+   "version": "2.0",
+   "author": null,
+   "homepage": null,
+   "license": "MIT",
+   "category": "Productivity",
+   "marketplace_category": null,
+   "tags": [
+    "tools",
+    "indie-tool"
+   ],
+   "source": {
+    "type": "relative",
+    "path": "./"
+   },
+   "install_command": "claude plugin install indie-tool@indie",
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": false,
+   "added": null,
+   "indexed": true,
+   "repo": "someone/indie",
+   "path": "",
+   "commit": "c3",
+   "manifest_name": "indie-tool",
+   "skills": [
+    "someone/indie:skills/shared"
+   ],
+   "files": [],
+   "components": {
+    "skills": 1,
+    "commands": 0,
+    "agents": 0,
+    "hooks": false,
+    "mcp_servers": false,
+    "lsp_servers": false,
+    "monitors": false,
+    "mods": false,
+    "bin": false
+   },
+   "automatic": {
+    "hooks": [],
+    "mcp_servers": [],
+    "lsp_servers": [],
+    "monitors": [],
+    "mods": [],
+    "bin": []
+   },
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": [],
+    "runs_code_automatically": []
+   },
+   "stars": 20,
+   "stars_gained": null,
+   "first_seen": "2026-11-05"
+  }
+ ],
+ "skills": [
+  {
+   "id": "anthropics/mp:plugins/official-tool/skills/fmt",
+   "name": "fmt",
+   "description": "The fmt skill",
+   "license": null,
+   "repo": "anthropics/mp",
+   "path": "plugins/official-tool/skills/fmt",
+   "commit": "c1",
+   "url": "https://github.com/anthropics/mp/tree/c1/plugins/official-tool/skills/fmt",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "official",
+   "publisher": "anthropic",
+   "listed_by_anthropic": true,
+   "stars": 500,
+   "stars_gained": {
+    "count": 50,
+    "days": 7
+   },
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [
+    "official-tool@anthropic-mp"
+   ],
+   "category": "Development",
+   "first_seen": "2026-10-28",
+   "added": "2026-10-20",
+   "install": {
+    "plugins": [
+     "claude plugin install official-tool@anthropic-mp"
+    ],
+    "copy": {
+     "repo": "anthropics/mp",
+     "path": "plugins/official-tool/skills/fmt",
+     "commit": "c1",
+     "target": "~/.claude/skills/fmt"
+    }
+   }
+  },
+  {
+   "id": "partner/tool",
+   "name": "partner-skill",
+   "description": "The partner-skill skill",
+   "license": null,
+   "repo": "partner/tool",
+   "path": "",
+   "commit": "c2",
+   "url": "https://github.com/partner/tool/tree/c2/",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": "run.sh",
+     "size": 10,
+     "sha": "cccccccccccccccccccccccccccccccccccccccc",
+     "kind": "script",
+     "executable": true
+    }
+   ],
+   "security": {
+    "risk": "high",
+    "scripts": 1,
+    "binaries": 0,
+    "findings": [
+     {
+      "rule": "pipe-to-shell",
+      "severity": "high",
+      "summary": "pipe-to-shell summary",
+      "file": "run.sh",
+      "line": 1,
+      "excerpt": "x",
+      "context": "code"
+     },
+     {
+      "rule": "secret-names",
+      "severity": "low",
+      "summary": "secret-names summary",
+      "file": "SKILL.md",
+      "line": 1,
+      "excerpt": "x",
+      "context": "documentation"
+     }
+    ]
+   },
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": true,
+   "stars": 1000,
+   "stars_gained": {
+    "count": 5,
+    "days": 7
+   },
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [
+    "partner@anthropic-mp"
+   ],
+   "category": "Development",
+   "first_seen": "2026-10-28",
+   "added": null,
+   "install": {
+    "plugins": [
+     "claude plugin install partner@anthropic-mp"
+    ],
+    "copy": {
+     "repo": "partner/tool",
+     "path": "",
+     "commit": "c2",
+     "target": "~/.claude/skills/partner-skill"
+    }
+   }
+  },
+  {
+   "id": "someone/indie:skills/shared",
+   "name": "shared",
+   "description": "The shared skill",
+   "license": null,
+   "repo": "someone/indie",
+   "path": "skills/shared",
+   "commit": "c3",
+   "url": "https://github.com/someone/indie/tree/c3/skills/shared",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "dddddddddddddddddddddddddddddddddddddddd",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": true,
+   "stars": 20,
+   "stars_gained": null,
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [
+    "partner@anthropic-mp",
+    "indie-tool@indie"
+   ],
+   "category": "Development",
+   "first_seen": "2026-11-05",
+   "added": null,
+   "install": {
+    "plugins": [
+     "claude plugin install partner@anthropic-mp",
+     "claude plugin install indie-tool@indie"
+    ],
+    "copy": {
+     "repo": "someone/indie",
+     "path": "skills/shared",
+     "commit": "c3",
+     "target": "~/.claude/skills/shared"
+    }
+   }
+  },
+  {
+   "id": "lonely/skills:setup",
+   "name": "setup",
+   "description": "The setup skill",
+   "license": null,
+   "repo": "lonely/skills",
+   "path": "setup",
+   "commit": "c4",
+   "url": "https://github.com/lonely/skills/tree/c4/setup",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": "scripts/go.py",
+     "size": 10,
+     "sha": "ffffffffffffffffffffffffffffffffffffffff",
+     "kind": "script",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "medium",
+    "scripts": 1,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": false,
+   "stars": 3,
+   "stars_gained": null,
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [],
+   "category": "DevOps & Cloud",
+   "first_seen": "2026-10-28",
+   "added": "2026-10-25",
+   "install": {
+    "plugins": [],
+    "copy": {
+     "repo": "lonely/skills",
+     "path": "setup",
+     "commit": "c4",
+     "target": "~/.claude/skills/setup"
+    }
+   }
+  },
+  {
+   "id": "other/skills:setup",
+   "name": "setup",
+   "description": "The setup skill",
+   "license": null,
+   "repo": "other/skills",
+   "path": "setup",
+   "commit": "c5",
+   "url": "https://github.com/other/skills/tree/c5/setup",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "1111111111111111111111111111111111111111",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": false,
+   "stars": 50,
+   "stars_gained": null,
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [],
+   "category": "Development",
+   "first_seen": "2026-10-28",
+   "added": null,
+   "install": {
+    "plugins": [],
+    "copy": {
+     "repo": "other/skills",
+     "path": "setup",
+     "commit": "c5",
+     "target": "~/.claude/skills/setup"
+    }
+   }
+  },
+  {
+   "id": "weird/plugin-skill",
+   "name": "plugin-skill",
+   "description": "The plugin-skill skill",
+   "license": null,
+   "repo": "weird/plugin-skill",
+   "path": "",
+   "commit": "c6",
+   "url": "https://github.com/weird/plugin-skill/tree/c6/",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "2222222222222222222222222222222222222222",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": ".claude-plugin/plugin.json",
+     "size": 10,
+     "sha": "3333333333333333333333333333333333333333",
+     "kind": "data",
+     "executable": false
+    },
+    {
+     "path": "hooks/hooks.json",
+     "size": 10,
+     "sha": "4444444444444444444444444444444444444444",
+     "kind": "data",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "community",
+   "publisher": "third_party",
+   "listed_by_anthropic": false,
+   "stars": 7,
+   "stars_gained": null,
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [],
+   "category": "Development",
+   "first_seen": "2026-10-28",
+   "added": null,
+   "install": {
+    "plugins": [],
+    "copy": {
+     "repo": "weird/plugin-skill",
+     "path": "",
+     "commit": "c6",
+     "target": "~/.claude/skills/plugin-skill"
+    }
+   }
+  },
+  {
+   "id": "anthropics/legacy:pdf",
+   "name": "pdf",
+   "description": "The pdf skill",
+   "license": null,
+   "repo": "anthropics/legacy",
+   "path": "pdf",
+   "commit": "c7",
+   "url": "https://github.com/anthropics/legacy/tree/c7/pdf",
+   "frontmatter": {
+    "allowed-tools": [
+     "Bash",
+     "Read"
+    ],
+    "version": 2
+   },
+   "lines": 10,
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "security": {
+    "risk": "low",
+    "scripts": 0,
+    "binaries": 0,
+    "findings": []
+   },
+   "trust": "official",
+   "stars": 9000,
+   "repo_pushed_at": "2026-10-27T00:00:00Z",
+   "plugins": [],
+   "category": "Development",
+   "first_seen": "2026-10-28",
+   "install": {
+    "plugins": [],
+    "copy": {
+     "repo": "anthropics/legacy",
+     "path": "pdf",
+     "commit": "c7",
+     "target": "~/.claude/skills/pdf"
+    }
+   }
+  }
+ ],
+ "repos": [],
+ "errors": [],
+ "some_future_field": {
+  "x": 1
+ }
+}
