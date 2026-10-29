@@ -1,4 +1,5 @@
 import AppKit
+import Foundation
 import SkillsHubCore
 import SwiftUI
 
@@ -18,7 +19,7 @@ struct ItemDetailView: View {
             if let catalog = app.index.catalog, let item = catalog.item(id: id), let model {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
-                        DetailHeader(item: item, catalog: catalog, state: catalogModel.snapshot?.state(of: item) ?? .none,
+                        DetailHeader(item: item, catalog: catalog, state: catalogModel.snapshot?.state(of: item) ?? .empty,
                                      open: { catalogModel.path.append($0) })
                         SecurityPanel(item: item, catalog: catalog, model: model)
                         AboutSection(item: item, catalog: catalog)

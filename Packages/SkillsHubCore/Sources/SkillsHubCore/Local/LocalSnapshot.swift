@@ -37,7 +37,7 @@ public struct ItemLocalState: Sendable, Hashable {
     /// For a skill: installed plugins that load it.
     public let viaPlugins: [String]
 
-    public static let none = ItemLocalState(state: .notInstalled, folders: [], pluginInstalls: [], viaPlugins: [])
+    public static let empty = ItemLocalState(state: .notInstalled, folders: [], pluginInstalls: [], viaPlugins: [])
 
     /// Installed only at project or local scope, which v1 shows but doesn't manage.
     public var isProjectScopedOnly: Bool {
@@ -83,14 +83,14 @@ public struct LocalSnapshot: Sendable {
         switch item.kind {
         case .plugin:
             let installs = installsByPlugin[item.id] ?? []
-            guard !installs.isEmpty, let plugin = catalog.pluginsByID[item.id] else { return .none }
+            guard !installs.isEmpty, let plugin = catalog.pluginsByID[item.id] else { return .empty }
             let update = installs.contains { Self.pluginUpdateAvailable(installed: $0, indexed: plugin) }
             return ItemLocalState(state: update ? .updateAvailable : .installed, folders: [], pluginInstalls: installs, viaPlugins: [])
         case .skill:
             let folders = foldersBySkill[item.id] ?? []
             let viaPlugins = (catalog.skillsByID[item.id]?.plugins ?? []).filter { installsByPlugin[$0] != nil }
             let installs = viaPlugins.flatMap { installsByPlugin[$0] ?? [] }
-            guard !folders.isEmpty || !viaPlugins.isEmpty else { return .none }
+            guard !folders.isEmpty || !viaPlugins.isEmpty else { return .empty }
             let folderUpdate = folders.contains {
                 if case .linked(_, true) = folderStatus[$0.id] { return true }
                 return false

@@ -1,3 +1,5 @@
+import AppKit
+import Foundation
 import SkillsHubCore
 import SwiftUI
 

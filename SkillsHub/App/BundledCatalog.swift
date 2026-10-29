@@ -5,10 +5,9 @@ import SkillsHubCore
 /// instantly and works offline. `Scripts/update_bundled_catalog.sh` refreshes it before a release.
 nonisolated enum BundledCatalog {
     static func make(bundle: Bundle = .main) -> BundledIndex {
-        BundledIndex(generatedAt: generatedAt(bundle: bundle)) {
-            guard let url = bundle.url(forResource: "index.json", withExtension: "gz"),
-                  let data = try? Data(contentsOf: url)
-            else { return nil }
+        let url = bundle.url(forResource: "index.json", withExtension: "gz")
+        return BundledIndex(generatedAt: generatedAt(bundle: bundle)) {
+            guard let url, let data = try? Data(contentsOf: url) else { return nil }
             return try? Gzip.decompress(data)
         }
     }

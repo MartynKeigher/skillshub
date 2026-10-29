@@ -6,6 +6,7 @@
 //  Copyright (c) 2026 Ali Elsokary, MIT License. See THIRD_PARTY_NOTICES.md.
 //
 
+import Foundation
 import SkillsHubCore
 
 enum DiscoverItem: String, CaseIterable, Identifiable {
