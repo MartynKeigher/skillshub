@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5B1E0A032F00C0DE00A1B2C3 /* SkillsHubCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3F9C092B3092C429002F9EAA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -38,6 +42,7 @@
 		3F9C091A3092C429002F9EAA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				5B1E0A032F00C0DE00A1B2C3 /* SkillsHubCore in Frameworks */,
 			);
 		};
 		3F9C09273092C429002F9EAA /* Frameworks */ = {
@@ -83,6 +88,9 @@
 				3F9C091F3092C429002F9EAA /* SkillsHub */,
 			);
 			name = SkillsHub;
+			packageProductDependencies = (
+				5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */,
+			);
 			productName = SkillsHub;
 			productReference = 3F9C091D3092C429002F9EAA /* SkillsHub.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +144,9 @@
 			);
 			mainGroup = 3F9C09143092C429002F9EAA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5B1E0A012F00C0DE00A1B2C3 /* XCLocalSwiftPackageReference "Packages/SkillsHubCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3F9C091E3092C429002F9EAA /* Products */;
 			projectDirPath = "";
@@ -436,6 +447,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5B1E0A012F00C0DE00A1B2C3 /* XCLocalSwiftPackageReference "Packages/SkillsHubCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SkillsHubCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B1E0A022F00C0DE00A1B2C3 /* SkillsHubCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SkillsHubCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F9C09153092C429002F9EAA /* Project object */;
 	validationLevel = 1;

@@ -1,21 +1,10 @@
-//
-//  ContentView.swift
-//  SkillsHub
-//
-//  Created by Martyn Keigher on 10/28/26.
-//
-
+import SkillsHubCore
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("SkillsHub \(CatalogIndex.supportedSchemaVersion)")
+            .padding()
     }
 }
 
