@@ -1,3 +1,15 @@
+# Xcode
 xcuserdata/
 DerivedData/
+build/
+*.xcresult
+*.xccheckout
+*.moved-aside
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/*/Package.resolved
+
+# macOS
 .DS_Store
