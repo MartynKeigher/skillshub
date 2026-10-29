@@ -1,0 +1,204 @@
+{
+ "98": {
+  "anthropics/mp:plugins/official-tool/skills/fmt": {
+   "commit": "c1",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "fe": {
+  "partner/tool": {
+   "commit": "c2",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": "run.sh",
+     "size": 10,
+     "sha": "cccccccccccccccccccccccccccccccccccccccc",
+     "kind": "script",
+     "executable": true
+    }
+   ],
+   "findings": [
+    {
+     "rule": "pipe-to-shell",
+     "severity": "high",
+     "summary": "pipe-to-shell summary",
+     "file": "run.sh",
+     "line": 1,
+     "excerpt": "x",
+     "context": "code"
+    },
+    {
+     "rule": "secret-names",
+     "severity": "low",
+     "summary": "secret-names summary",
+     "file": "SKILL.md",
+     "line": 1,
+     "excerpt": "x",
+     "context": "documentation"
+    }
+   ]
+  }
+ },
+ "73": {
+  "someone/indie:skills/shared": {
+   "commit": "c3",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "dddddddddddddddddddddddddddddddddddddddd",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "c6": {
+  "lonely/skills:setup": {
+   "commit": "c4",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": "scripts/go.py",
+     "size": 10,
+     "sha": "ffffffffffffffffffffffffffffffffffffffff",
+     "kind": "script",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "42": {
+  "other/skills:setup": {
+   "commit": "c5",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "1111111111111111111111111111111111111111",
+     "kind": "doc",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "00": {
+  "weird/plugin-skill": {
+   "commit": "c6",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "sha": "2222222222222222222222222222222222222222",
+     "kind": "doc",
+     "executable": false
+    },
+    {
+     "path": ".claude-plugin/plugin.json",
+     "size": 10,
+     "sha": "3333333333333333333333333333333333333333",
+     "kind": "data",
+     "executable": false
+    },
+    {
+     "path": "hooks/hooks.json",
+     "size": 10,
+     "sha": "4444444444444444444444444444444444444444",
+     "kind": "data",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "16": {
+  "anthropics/legacy:pdf": {
+   "commit": "c7",
+   "files": [
+    {
+     "path": "SKILL.md",
+     "size": 10,
+     "kind": "doc",
+     "executable": false,
+     "sha": "9999999999999999999999999999999999999999"
+    }
+   ],
+   "findings": []
+  }
+ },
+ "bb": {
+  "official-tool@anthropic-mp": {
+   "commit": "c1",
+   "files": [
+    {
+     "path": ".claude-plugin/plugin.json",
+     "size": 10,
+     "sha": "5555555555555555555555555555555555555555",
+     "kind": "data",
+     "executable": false
+    }
+   ],
+   "findings": []
+  }
+ },
+ "60": {
+  "partner@anthropic-mp": {
+   "commit": "c2",
+   "files": [],
+   "findings": [
+    {
+     "rule": "network-code",
+     "severity": "medium",
+     "summary": "network-code summary",
+     "file": "server.js",
+     "line": 1,
+     "excerpt": "x",
+     "context": "code"
+    }
+   ]
+  }
+ },
+ "33": {
+  "unreviewed@anthropic-mp": {
+   "commit": null,
+   "files": []
+  },
+  "indie-tool@indie": {
+   "commit": "c3",
+   "files": [],
+   "findings": []
+  }
+ },
+ "6b": {
+  "rel@anthropic-mp": {
+   "commit": "c9",
+   "files": [],
+   "findings": []
+  }
+ }
+}
